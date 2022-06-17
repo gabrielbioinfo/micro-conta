@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start:dev": "node -r @swc-node/register ./src/main.ts",
     "ts-node": "ts-node",
@@ -22,10 +23,12 @@
     "@swc-node/register": "^1.5.1",
     "@swc/cli": "^0.1.57",
     "@swc/core": "^1.2.203",
+    "@swc/jest": "^0.2.21",
     "@types/jest": "^28.1.2",
     "@types/node": "^18.0.0",
     "create-ts-index": "^1.14.0",
     "jest": "^28.1.1",
+    "ts-node": "^10.8.1",
     "typescript": "^4.7.3"
   }
 }

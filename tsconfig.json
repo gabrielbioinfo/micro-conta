@@ -15,14 +15,7 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "allowJs": true,
-    "paths": {
-      "#shared/*": [
-        "./shared/*"
-      ],
-      "#category/*": [
-        "./category/*"
-      ]
-    },
+    "outDir": "./dist"
   },
   "include": [
     "./src/"
