@@ -1,0 +1,15 @@
+version: "3"
+services:
+  app:
+    container_name: app
+    restart: always
+    build: .
+    volumes:
+      - ./src:/usr/src/app/src
+    environment:
+      - PORT=3000
+    ports:
+      - "3000:3000"
+    command:
+      "npm run start:dev"
+  
