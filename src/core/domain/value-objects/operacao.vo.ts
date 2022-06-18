@@ -5,10 +5,10 @@ import Currency, { CURRENCIES } from '../data/currency';
 import OperacaoTipo from '../data/operacao-tipo';
 
 export interface OperacaoPropsInput {
-  type: OperacaoTipo;
-  currency: Currency;
-  amount: number;
-  when: Date | string;
+  type?: OperacaoTipo;
+  currency?: Currency;
+  amount?: number;
+  when?: Date | string;
 }
 
 export interface OperacaoProps {
@@ -21,13 +21,13 @@ export interface OperacaoProps {
 export default class Operacao extends ValueObject<OperacaoProps> {
   static DEFAULT_LOCALE = 'pt-BR';
 
-  static create(value: OperacaoPropsInput): Readonly<Operacao> {
-    return new Operacao(value);
+  static create(value?: OperacaoPropsInput): Readonly<Operacao> {
+    return new Operacao(value || {});
   }
 
   private constructor({
     type = OperacaoTipo.DEPOSITO,
-    amount,
+    amount = 0,
     currency = CURRENCIES.BRL,
     when = new Date(),
   }: OperacaoPropsInput) {
@@ -42,6 +42,22 @@ export default class Operacao extends ValueObject<OperacaoProps> {
       when: whenDate,
     });
     this.isValid();
+  }
+
+  get type(): OperacaoTipo {
+    return this.value.type;
+  }
+
+  get amount(): number {
+    return this.value.amount;
+  }
+
+  get currency(): Currency {
+    return this.value.currency;
+  }
+
+  get when(): Date {
+    return this.value.when;
   }
 
   toString(): string {

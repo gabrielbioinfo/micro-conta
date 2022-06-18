@@ -1,6 +1,8 @@
 const ERROR = {
   GENERIC: 'errors.some.error',
   MISSING_IMPLEMENTATION: 'errors.missing.implementation',
+  INVALID_OPERATION: 'errors.invalid.operation',
+
   INVALID_UUID: 'errors.invalid.uuid',
   INVALID_CPF: 'errors.invalid.cpf',
   INVALID_CPF_IS_REQUIRED: 'errors.invalid.cpf.is.required',
@@ -18,6 +20,12 @@ const ERROR = {
     'errors.invalid.contadigital.missing.number',
   INVALID_CONTA_DIGITAL_MISSING_AGENCY:
     'errors.invalid.contadigital.missing.agency',
+
+  CONTA_DIGITAL_CHANGE_FIELD_NOT_ALLOWED:
+    'errors.contadigital.change.field.not.allowed',
+  CONTA_DIGITAL_CHANGE_SALDO_NOT_ALLOWED:
+    'errors.contadigital.change.saldo.not.allowed',
+  CONTA_DIGITAL_SALDO_INSUFFICIENT: 'errors.contadigital.saldo.insufficient',
 };
 
 export default ERROR;

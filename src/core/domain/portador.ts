@@ -7,7 +7,7 @@ import CPF from './value-objects/cpf.vo';
 
 export default class Portador extends AbstractEntity {
   constructor(
-    public readonly cpf: CPF,
+    public readonly cpf: CPF | Readonly<CPF>,
     public readonly fullName: string,
     id?: UniqueEntityId | string,
   ) {
