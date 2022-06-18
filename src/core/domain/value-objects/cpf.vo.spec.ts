@@ -8,7 +8,7 @@ describe('CPF value object', () => {
 
   beforeEach(() => {
     cpfFormated = '821.484.270-08';
-    cpf = new CPF(cpfFormated);
+    cpf = CPF.create(cpfFormated);
   });
 
   it('should be able to create a CPF', () => {
@@ -18,7 +18,7 @@ describe('CPF value object', () => {
   it('should be able to create a CPF', () => {
     const spyOnValidation = jest.spyOn(CPF.prototype, 'isValid');
     // eslint-disable-next-line no-new
-    new CPF('821.484.270-08');
+    CPF.create('821.484.270-08');
     expect(spyOnValidation).toBeCalled();
   });
 
@@ -30,17 +30,17 @@ describe('CPF value object', () => {
   it('should be invalid when the number is all the same', () => {
     expect(() => {
       // eslint-disable-next-line no-new
-      new CPF('');
+      CPF.create('');
     }).toThrowError(InvalidCPFError);
 
     expect(() => {
       // eslint-disable-next-line no-new
-      new CPF('');
+      CPF.create('');
     }).toThrowError(I18n.getInstance().STRINGS.ERROR.INVALID_CPF_EMPTY);
 
     expect(() => {
       // eslint-disable-next-line no-new
-      new CPF('11111111111');
+      CPF.create('11111111111');
     }).toThrowError(I18n.getInstance().STRINGS.ERROR.INVALID_CPF_ALLTHESAME);
   });
 
@@ -59,11 +59,11 @@ describe('CPF value object', () => {
   });
 
   it('should validate the number', () => {
-    let validCpf = new CPF('40746546017');
+    let validCpf = CPF.create('40746546017');
     expect(validCpf.toString(false)).toBe('40746546017');
     expect(validCpf.toString()).toBe('407.465.460-17');
 
-    validCpf = new CPF('06332442018');
+    validCpf = CPF.create('06332442018');
     expect(validCpf.toString(false)).toBe('06332442018');
   });
 });

@@ -1,4 +1,6 @@
 const ERROR = {
+  GENERIC: 'errors.some.error',
+  MISSING_IMPLEMENTATION: 'errors.missing.implementation',
   INVALID_UUID: 'errors.invalid.uuid',
   INVALID_CPF: 'errors.invalid.cpf',
   INVALID_CPF_EMPTY: 'errors.invalid.cpf.empty',

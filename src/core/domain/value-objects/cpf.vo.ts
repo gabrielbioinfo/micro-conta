@@ -1,23 +1,22 @@
+import ValueObject from '../../../_shared/domain/value-object';
 import I18n from '../../../_shared/i18n/i18n';
 import InvalidCPFError from '../../errors/invalid-cpf-error';
 
-export default class CPF {
-  private readonly number: string;
-
-  constructor(number: string) {
-    this.number = number.replace(/[^0-9]/g, '');
+export default class CPF extends ValueObject<string> {
+  private constructor(number: string) {
+    super(number.replace(/[^0-9]/g, ''));
     this.isValid();
   }
 
   isValid() {
-    if (!this.number || this.number.length === 0)
+    if (!this.value || this.value.length === 0)
       throw new InvalidCPFError(
         I18n.getInstance().STRINGS.ERROR.INVALID_CPF_EMPTY,
       );
 
-    const firstCharacter = this.number[0];
+    const firstCharacter = this.value[0];
     const regex = new RegExp(`^${firstCharacter}+$`, 'g'); // correct way
-    if (this.number.match(regex))
+    if (this.value.match(regex))
       throw new InvalidCPFError(
         I18n.getInstance().STRINGS.ERROR.INVALID_CPF_ALLTHESAME,
       );
@@ -26,18 +25,18 @@ export default class CPF {
   }
 
   toString(useMask = true) {
-    if (!useMask) return this.number;
-    return this.number.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+    if (!useMask) return this.value;
+    return this.value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
   }
 
   checkNumberValidation() {
-    const firstNineDigits = [...this.number].slice(0, 9);
+    const firstNineDigits = [...this.value].slice(0, 9);
     const firstDigit = CPF.getDigit(firstNineDigits);
     const tenDigits = [...firstNineDigits, firstDigit];
     const secondDigit = CPF.getDigit(tenDigits);
     if (
-      firstDigit !== Number(this.number[this.number.length - 2]) ||
-      secondDigit !== Number(this.number[this.number.length - 1])
+      firstDigit !== Number(this.value[this.value.length - 2]) ||
+      secondDigit !== Number(this.value[this.value.length - 1])
     )
       throw new InvalidCPFError(
         I18n.getInstance().STRINGS.ERROR.INVALID_CPF_REJECTED,
@@ -56,5 +55,9 @@ export default class CPF {
       resultDigit = 11 - modDivisionByEleven;
     }
     return resultDigit;
+  }
+
+  static create(value: string): Readonly<CPF> {
+    return Object.freeze(new CPF(value));
   }
 }
