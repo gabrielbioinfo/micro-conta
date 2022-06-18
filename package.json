@@ -38,7 +38,6 @@
     "prettier": "^2.7.1",
     "ts-node": "^10.8.1",
     "typescript": "^4.7.3",
-    "typescript@latest": "link:eslint-plugin-import/typescript@latest",
     "eslint-import-resolver-node": "^0.3.6"
   },
   "dependencies": {

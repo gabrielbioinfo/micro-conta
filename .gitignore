@@ -131,3 +131,4 @@ dist
 
 pnpm-lock.yaml
 __coverage
+package-lock.json

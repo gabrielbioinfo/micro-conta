@@ -3,8 +3,8 @@ import I18n from '../../../_shared/i18n/i18n';
 import InvalidCPFError from '../../errors/invalid-cpf-error';
 
 export default class CPF extends ValueObject<string> {
-  private constructor(number: string) {
-    super(number.replace(/[^0-9]/g, ''));
+  private constructor(number: string = '') {
+    super(number ? number.replace(/[^0-9]/g, '') : '');
     this.isValid();
   }
 

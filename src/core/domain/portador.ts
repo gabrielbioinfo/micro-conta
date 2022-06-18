@@ -1,20 +1,44 @@
 import AbstractEntity from '../../_shared/domain/abstract-entity';
 import UniqueEntityId from '../../_shared/domain/unique-entity-id.vo';
+import InvalidOperationError from '../../_shared/errors/invalid-operation-error';
 import I18n from '../../_shared/i18n/i18n';
 import InvalidCPFError from '../errors/invalid-cpf-error';
 import InvalidFullnameError from '../errors/invalid-fullname-error';
 import CPF from './value-objects/cpf.vo';
 
+export interface PortadorProps {
+  cpf: string;
+  fullName: string;
+  id?: UniqueEntityId | string;
+}
+
 export default class Portador extends AbstractEntity {
-  constructor(
-    public readonly cpf: CPF | Readonly<CPF>,
-    public readonly fullName: string,
-    id?: UniqueEntityId | string,
-  ) {
+  private _cpf: Readonly<CPF>;
+  private _fullName: string;
+
+  constructor({ cpf = '', fullName, id }: PortadorProps) {
     super(id);
-    this.cpf = cpf;
-    this.fullName = fullName;
+    this._cpf = CPF.create(cpf);
+    this._fullName = fullName;
     this.isValid();
+  }
+
+  get cpf(): Readonly<CPF> {
+    return this._cpf;
+  }
+
+  set cpf(newValue: Readonly<CPF>) {
+    throw new InvalidOperationError(
+      I18n.getInstance().STRINGS.ERROR.INVALID_FIELD_CHANGE,
+    );
+  }
+
+  get fullName() {
+    return this._fullName;
+  }
+
+  set fullName(newValue: string) {
+    this._fullName = newValue;
   }
 
   isValid() {

@@ -3,6 +3,7 @@ const ERROR = {
   MISSING_IMPLEMENTATION: 'errors.missing.implementation',
   INVALID_OPERATION: 'errors.invalid.operation',
 
+  INVALID_FIELD_CHANGE: 'errors.invalid.field.change',
   INVALID_UUID: 'errors.invalid.uuid',
   INVALID_CPF: 'errors.invalid.cpf',
   INVALID_CPF_IS_REQUIRED: 'errors.invalid.cpf.is.required',
