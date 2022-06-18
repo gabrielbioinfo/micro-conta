@@ -12,6 +12,12 @@ const ERROR = {
   INVALID_FULLNAME_EMPTY: 'errors.invalid.fullname.empty',
   INVALID_AMOUNT: 'errors.invalid.amount',
   INVALID_AMOUNT_NEGATIVE: 'errors.invalid.amount.negative',
+
+  INVALID_CONTA_DIGITAL: 'errors.invalid.contadigital',
+  INVALID_CONTA_DIGITAL_MISSING_NUMBER:
+    'errors.invalid.contadigital.missing.number',
+  INVALID_CONTA_DIGITAL_MISSING_AGENCY:
+    'errors.invalid.contadigital.missing.agency',
 };
 
 export default ERROR;
