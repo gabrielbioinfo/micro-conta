@@ -27,7 +27,8 @@
 				"js": "never",
 				"ts": "never"
 			}
-		]
+		],
+		"no-plusplus": [2, { "allowForLoopAfterthoughts": true }]
 	},
 	"settings": {
 		"import/resolver": {
