@@ -2,6 +2,7 @@ const ERROR = {
   GENERIC: 'errors.some.error',
   MISSING_IMPLEMENTATION: 'errors.missing.implementation',
   INVALID_OPERATION: 'errors.invalid.operation',
+  ENTITY_NOT_FOUND: 'errors.entity.not.found',
 
   INVALID_FIELD_CHANGE: 'errors.invalid.field.change',
   INVALID_UUID: 'errors.invalid.uuid',

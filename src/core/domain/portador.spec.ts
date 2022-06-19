@@ -1,6 +1,5 @@
-import I18n from '../../_shared/i18n/i18n';
+import I18n from '../../_shared/domain/i18n/i18n';
 import Portador, { PortadorProps } from './portador';
-import CPF from './value-objects/cpf.vo';
 
 describe('Portador', () => {
   it('should be able to create a Portador', async () => {

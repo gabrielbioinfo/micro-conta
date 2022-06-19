@@ -1,4 +1,4 @@
-import I18n from '../../_shared/i18n/i18n';
+import I18n from '../../_shared/domain/i18n/i18n';
 
 export default class InvalidFullnameError extends Error {
   constructor(message?: string) {

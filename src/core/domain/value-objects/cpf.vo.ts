@@ -1,5 +1,5 @@
-import ValueObject from '../../../_shared/domain/value-object';
-import I18n from '../../../_shared/i18n/i18n';
+import ValueObject from '../../../_shared/domain/entities/value-object';
+import I18n from '../../../_shared/domain/i18n/i18n';
 import InvalidCPFError from '../../errors/invalid-cpf-error';
 
 export default class CPF extends ValueObject<string> {

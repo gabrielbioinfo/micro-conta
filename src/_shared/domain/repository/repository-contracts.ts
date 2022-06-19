@@ -1,5 +1,5 @@
-import AbstractEntity from '../domain/abstract-entity';
-import UniqueEntityId from '../domain/unique-entity-id.vo';
+import AbstractEntity from '../entities/abstract-entity';
+import UniqueEntityId from '../entities/unique-entity-id.vo';
 
 export interface RepositoryInterface<E extends AbstractEntity> {
   insert(entity: E): Promise<void>;

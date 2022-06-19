@@ -1,5 +1,5 @@
-import ValueObject from '../../../_shared/domain/value-object';
-import I18n from '../../../_shared/i18n/i18n';
+import ValueObject from '../../../_shared/domain/entities/value-object';
+import I18n from '../../../_shared/domain/i18n/i18n';
 import InvalidAmountError from '../../errors/invalid-amount-error';
 import Currency, { CURRENCIES } from '../data/currency';
 import OperacaoTipo from '../data/operacao-tipo';
